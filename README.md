@@ -2,7 +2,6 @@
 ## Coursera_Getting and Cleaning Data_CourseProject
 The purpose of this Course Project is to create a tidy dataset from the Human Activity Recognition Using Smartphones Dataset. For this analysis, I used the following files out of all the files from the original HAR dataset. 
 The dataset is available at [UCI](https://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
-
 ###### From the UCI-HAR folder, read the 'X_test.txt' and 'X_train.txt' files. 
 ```
 setwd("~/R/Coursera/Getting and Cleaning Data/Course Project")
@@ -40,7 +39,7 @@ data <- merged[,find_vars]
 head(data)
 ```
 ######STEP 3: Use descriptive activity names to describe the activities in the dataset.
-* (First I need the activity codes for each observation. So, I imported the 'y_test.txt' file and 'y_train.txt' file. Appended the values in y_train to the values in y_test. The resulting 'activity' vector gives the activity codes of each row in 'data.' Then I merged the 'activity' vector with the 'data' dataset. So now, every observation has an activity code. Then I imported the 'activity_labels.txt' file to see which code corresponds to what label. Finally,I used the 'gsub' function to replace the activity codes with activity labels.) * 
+First I need the activity codes for each observation. So, I imported the 'y_test.txt' file and 'y_train.txt' file. Appended the values in y_train to the values in y_test. The resulting 'activity' vector gives the activity codes of each row in 'data.' Then I merged the 'activity' vector with the 'data' dataset. So now, every observation has an activity code. Then I imported the 'activity_labels.txt' file to see which code corresponds to what label. Finally,I used the 'gsub' function to replace the activity codes with activity labels. 
  ```
 fpath_ytest <- file.path(td, fname$Name[18])
 ytest <- read.table(fpath_ytest)
@@ -61,13 +60,12 @@ activity_data$activity <- gsub(6, "LAYING", activity_data$activity)
 View(activity_data)
 ```
 ######STEP 4: Appropriately labels the data set with descriptive variable names.
-* (The variable names were added in Step 2. I cleaned up the names by replacing the - with _.) *
+The variable names were added in Step 2. I cleaned up the names by replacing the - with _.
 ```
 names(activity_data) <- gsub("-", "_", names(activity_data))
 ```
-
 ######STEP5 From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
-* (This step requires the SubjectIDs for each observation. I import the subjectIDs of the 'test' and 'train' datasets.Then appended the values of subjectIDs for the train data to subjectIDs for the test data. This gives a vector of values with the subjectID for every observation in the dataset. Then merge the subjectID vector with the 'activity_data.' Used the 'aggregate' function to group the dataset by subject ID and activity, and took the mean for each variable for each group.Since the 'aggregate' function converts the 'activity' variable to a factor, I replace the factor codes with activity labels for the final tidy dataset.) *
+This step requires the SubjectIDs for each observation. I import the subjectIDs of the 'test' and 'train' datasets.Then appended the values of subjectIDs for the train data to subjectIDs for the test data. This gives a vector of values with the subjectID for every observation in the dataset. Then merge the subjectID vector with the 'activity_data.' Used the 'aggregate' function to group the dataset by subject ID and activity, and took the mean for each variable for each group.Since the 'aggregate' function converts the 'activity' variable to a factor, I replace the factor codes with activity labels for the final tidy dataset.
 ```
 fpath_subjectID_test <- file.path(td, fname$Name[16])
 subjectID_test <- read.table(fpath_subjectID_test)
