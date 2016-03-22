@@ -1,0 +1,35 @@
+Human Activity Recognition Using Smartphones Dataset
+==================================================================
+pri1602
+Coursera_Getting and Cleaning Data Project
+==================================================================
+SUMMARY: The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person
+performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone 
+(Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, 3-axial linear acceleration
+and 3-axial angular velocity measurements were captured at a constant rate of 50Hz. The obtained dataset has been randoml
+y partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
+The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then a 561-feature vector with time
+and frequency domain variables is captured.
+For the purpose of this assignment, the 'mean' and standard deviation' variables out of all the 561 feature vector variables are extracted.
+Then the mean of each of these variables, grouped by each subject and each activity is computed. The dataset presented here therefore 
+consists of a total of 81 time and frequency domain variables, summarized for each of the 6 activities and each of the 30 subjecta.
+================================================================== 
+DATA PROCESSING: The files used are available at [UCI-HAR](https://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones).
+The files used for this project are:
+- X_test.txt  : dataset with the test subjects' observations.
+- X_train.txt : dataset with the training subjects' observations. 
+- y_test.txt  : dataset with the activity codes for test dataset.
+- y_train.txt : dataset with the activity codes for the training dataset. 
+- activity_labels.txt : dataset corresponding to activity labels for y_test and y_train. 
+- features.txt : dataset with the names for each feature. Used as variable names.
+- subject_test.txt : dataset with subjectIDs for the test dataset. 
+- subject_train.txt : dataset with subjectIDs for the training dataset.
+Please refer to the corresponding README.MD file for details of how the data was processed. 
+==================================================================
+VARIABLES: There are a total of 81 variables in this dataset. Each of the variables are described below: 
+subjectID: 1,2,3..29,30 Unique Identifier assigned to every subject. 
+activity
+
+
+
+
