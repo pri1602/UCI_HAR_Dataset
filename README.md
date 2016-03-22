@@ -3,7 +3,7 @@
 The purpose of this Course Project is to create a tidy dataset from the Human Activity Recognition Using Smartphones Dataset. For this analysis, I used the following files out of all the files from the original HAR dataset. 
 The dataset is available at [UCI](https://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
 
-######Unzip the UCI-HAR folder. 
+###### From the UCI-HAR folder, read the 'X_test.txt' and 'X_train.txt' files. 
 ```
 setwd("~/R/Coursera/Getting and Cleaning Data/Course Project")
 fileurl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
@@ -12,9 +12,6 @@ tf <- tempfile(tmpdir=td, fileext=".zip")
 download.file(fileurl, tf)
 fname <- unzip(tf, exdir=td, overwrite=TRUE, list=TRUE)
 head(fname)
-```
-######Import the 'X_test'file, save as 'test_data.'Also import the 'X_train' files and save as 'train_data.'
-```
 fpath_test <- file.path(td, fname$Name[17])
 test_data <- read.table(fpath_test)
 str(test_data)
@@ -22,14 +19,14 @@ fpath_train <- file.path(td,fname$Name[31])
 train_data <- read.table(fpath_train)
 str(train_data)
 ```
-######STEP 1: Merged 'test_data' and 'train data' to create the 'merged' dataset using the function full_join from dplyr tools.
+######STEP 1: Merged 'test_data' and 'train data' to create one dataset.
 ```
 library(dplyr)
 merged <- full_join(test_data, train_data)
 str(merged)
 ```
 ######STEP 2: Extract measurements on the mean and standard deviation for each measurement. 
-* (It will be easier to do this if I have the variable names for each column. I import the variable names from the 'features.txt' file.I use function t() to transpose the column values to row-names. Transpose gives a matrix of names, so I first convert it into #a vector of names using function as.vector.I use the names() function to replace the header of the 'merged' dataset with the new variable names. I use grep to find those variables with mean or standard deviation ('mean|sd') in their names.  I then subset the 'merged' dataset by the indices thrown out by the grep function to derive a smaller dataset with only the mean and standard deviation measurements.)*
+* (It will be easier to do this if I have the variable names for each column. I import the variable names from the 'features.txt' file.I use function t() to transpose the column values to row-names. Transpose gives a matrix of names, so I first convert it into #a vector of names using function as.vector.I use the names() function to replace the header of the 'merged' dataset with the new variable names. I use grep to find those variables with mean or standard deviation ('mean|sd') in their names.  I then subset the 'merged' dataset by the indices thrown out by the grep function to derive a smaller dataset with only the mean and standard deviation measurements.) *
 ```
 fpath_varnames <- file.path(td,fname$Name[2])
 varnames <- read.table(fpath_varnames)
