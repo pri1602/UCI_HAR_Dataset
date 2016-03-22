@@ -12,9 +12,10 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
 and frequency domain variables is captured.
 For the purpose of this assignment, the 'mean' and standard deviation' variables out of all the 561 feature vector variables are extracted.
 Then the mean of each of these variables, grouped by each subject and each activity is computed. The dataset presented here therefore 
-consists of a total of 81 time and frequency domain variables, summarized for each of the 6 activities and each of the 30 subjecta.
+consists of a total of 81 time and frequency domain variables, summarized for each of the 6 activities and each of the 30 subjects.
 ================================================================== 
 DATA PROCESSING: The files used are available at [UCI-HAR](https://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones).
+The code book for the raw data is included in the features.info.txt file. 
 The files used for this project are:
 - X_test.txt  : dataset with the test subjects' observations.
 - X_train.txt : dataset with the training subjects' observations. 
@@ -27,8 +28,136 @@ The files used for this project are:
 Please refer to the corresponding README.MD file for details of how the data was processed. 
 ==================================================================
 VARIABLES: There are a total of 81 variables in this dataset. Each of the variables are described below: 
-subjectID: 1,2,3..29,30 Unique Identifier assigned to every subject. 
-activity
+
+subjectID: Unique Identifier assigned to every subject. 
+1,2,3..29,30
+
+activity: Measurements are taken for each of the following activities.
+1 WALKING
+2 WALKING_UPSTAIRS
+3 WALKING_DOWNSTAIRS
+4 SITTING
+5 STANDING
+6 LAYING
+
+tBodyAcc_groupMean_X: Average accelerometer time reading grouped by subjectID and activity for signal in the X direction.
+(Derived by summarizing the tBodyAcc_mean()_X variable in the raw data by subjectID and activity).
+Range[ 0.2215982 - 0.301461]
+
+tBodyAcc_groupMean_Y: Average accelerometer time reading grouped by subjectID and activity for signal in the Y direction.
+(Derived by summarizing the tBodyAcc_mean()_Y variable in the raw data by subjectID and activity).
+Range[ -0.040513953 -0.001308288]
+
+tBodyAcc_groupMean_Z: Average accelerometer time reading grouped by subjectID and activity for signal in the Z direction.
+(Derived by summarizing the tBodyAcc_mean()_Z variable in the raw data by subjectID and activity).
+Range[ -0.15251390 -0.07537847]
+
+tBodyAcc_groupStd_X: Standard deviations of accelerometer time reading grouped by subjectID and activity for signal in the X direction.
+(Derived by summarizing the tBodyAcc_std()_X variable in the raw data by subjectID and activity).
+Range[ -0.9960686  0.6269171]
+
+tBodyAcc_groupStd_Y: Standard deviations of accelerometer time reading grouped by subjectID and activity for signal in the Y direction.
+(Derived by summarizing the tBodyAcc_std()_Y variable in the raw data by subjectID and activity).
+Range[ -0.9902409  0.6169370]
+
+tBodyAcc_groupStd_Z: Standard deviations of accelerometer time reading grouped by subjectID and activity for signal in the Z direction.
+(Derived by summarizing the tBodyAcc_std()_Z variable in the raw data by subjectID and activity).
+Range[-0.9876587  0.6090179]
+
+tGravityAcc_groupMean_X: Average gravity-accelerometer time reading grouped by subjectID and activity for signal in the X direction.
+(Derived by summarizing the tGravityAcc_mean()_X variable in the raw data by subjectID and activity).
+Range[ -0.6800432  0.9745087]
+
+tGravityAcc_groupMean_Y: Average gravity-accelerometer time reading grouped by subjectID and activity for signal in the Y direction.
+(Derived by summarizing the tGravityAcc_mean()_Y variable in the raw data by subjectID and activity).
+Range[ -0.4798948  0.9565938]
+
+tGravityAcc_groupMean_Z: Average gravity-accelerometer time reading grouped by subjectID and activity for signal in the Z direction.
+(Derived by summarizing the tGravityAcc_mean()_Z variable in the raw data by subjectID and activity).
+Range[-0.4950887  0.9578730]
+
+tGravityAcc_groupStd_X: Standard deviation of gravity-accelerometer time reading grouped by subjectID and activity for signal in the X direction.
+(Derived by summarizing the tGravityAcc_std()_X variable in the raw data by subjectID and activity).
+Range[ -0.9967642 -0.8295549]
+
+tGravityAcc_groupStd_Y: Standard deviation of gravity-accelerometer time reading grouped by subjectID and activity for signal in the Y direction.
+(Derived by summarizing the tGravityAcc_std()_Y variable in the raw data by subjectID and activity).
+Range[-0.9942476 -0.6435784 ]
+
+tGravityAcc_groupStd_Z: Standard deviation of gravity-accelerometer time reading grouped by subjectID and activity for signal in the Z direction.
+(Derived by summarizing the tGravityAcc_std()_Z variable in the raw data by subjectID and activity).
+Range[-0.9909572 -0.6101612]
+
+tBodyAccJerk_groupMean_X: Average accelerometer Jerk time reading grouped by subjectID and activity for signal in the X direction.
+(Derived by summarizing the tBodyAccJerk_mean()_X variable in the raw data by subjectID and activity).
+Range[0.0426881 0.1301930]
+
+tBodyAccJerk_groupMean_Y: Average accelerometer time reading grouped by subjectID and activity for signal in the Y direction.
+(Derived by summarizing the tBodyAccJerk_mean()_Y variable in the raw data by subjectID and activity).
+Range[ -0.03868721  0.05681859]
+
+tBodyAccJerk_groupMean_Z: Average accelerometer time reading grouped by subjectID and activity for signal in the Z direction.
+(Derived by summarizing the tBodyAccJerk_mean()_Z variable in the raw data by subjectID and activity).
+Range[-0.06745839  0.03805336]
+
+tBodyAccJerk_groupStd_X: Standard deviation of accelerometer Jerk time reading grouped by subjectID and activity for signal in the X direction.
+(Derived by summarizing the tBodyAccJerk_std()_X variable in the raw data by subjectID and activity).
+Range[0.0426881 0.1301930]
+
+tBodyAccJerk_groupStd_Y: Standard deviation accelerometer Jerk time reading grouped by subjectID and activity for signal in the Y direction.
+(Derived by summarizing the tBodyAccJerk_mean()_Y variable in the raw data by subjectID and activity).
+Range[ -0.03868721  0.05681859]
+
+tBodyAccJerk_groupStd_Z: Standard deviation of accelerometer Jerk time reading grouped by subjectID and activity for signal in the Z direction.
+(Derived by summarizing the tBodyAccJerk_mean()_Z variable in the raw data by subjectID and activity).
+Range[-0.06745839  0.03805336]
+
+tBodyGyro_groupMean_X: Average gyrometer time reading grouped by subjectID and activity for signal in the X direction.
+(Derived by summarizing the tBodyGyro_mean()_X variable in the raw data by subjectID and activity).
+Range[-0.2057754  0.1927045]
+
+tBodyGyro_groupMean_Y: Average gyrometer time reading grouped by subjectID and activity for signal in the Y direction.
+(Derived by summarizing the tBodyGyro_mean()_Y variable in the raw data by subjectID and activity).
+Range[-0.20420536  0.02747076]
+
+tBodyGyro_groupMean_Z: Standard deviation of gyrometer time reading grouped by subjectID and activity for signal in the Z direction.
+(Derived by summarizing the tBodyGyro_mean()_Z variable in the raw data by subjectID and activity).
+Range[-0.0724546  0.1791021]
+
+tBodyGyro_groupStd_X: Standard deviation of accelerometer Jerk time reading grouped by subjectID and activity for signal in the X direction.
+(Derived by summarizing the tBodyGyro_std()_X variable in the raw data by subjectID and activity).
+Range[-0.9942766  0.2676572]
+
+tBodyGyro_groupStd_Y: Standard deviation accelerometer Jerk time reading grouped by subjectID and activity for signal in the Y direction.
+(Derived by summarizing the tBodyGyro_mean()_Y variable in the raw data by subjectID and activity).
+Range[-0.9942105  0.4765187]
+
+tBodyGyro_groupStd_Z: Standard deviation of accelerometer Jerk time reading grouped by subjectID and activity for signal in the Z direction.
+(Derived by summarizing the tBodyGyro_mean()_Z variable in the raw data by subjectID and activity).
+Range[-0.9855384  0.5648758]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
