@@ -1,7 +1,6 @@
 ## UCI_HAR_Dataset
 ## Coursera_Getting and Cleaning Data_CourseProject
-The purpose of this Course Project is to create a tidy dataset from the Human Activity Recognition Using Smartphones Dataset. For this analysis, I used the following files out of all the files from the original HAR dataset. 
-The dataset is available at [UCI_HAR_Dataset](https://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
+The purpose of this Course Project is to create a tidy dataset from the Human Activity Recognition Using Smartphones Dataset.The dataset is available at [UCI_HAR_Dataset](https://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
 ###### From the UCI-HAR folder, read the 'X_test.txt' and 'X_train.txt' files. 
 ```
 setwd("~/R/Coursera/Getting and Cleaning Data/Course Project")
