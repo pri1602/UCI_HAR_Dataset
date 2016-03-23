@@ -1,6 +1,6 @@
 ## UCI_HAR_Dataset
 ## Coursera_Getting and Cleaning Data_CourseProject
-The purpose of this Course Project is to create a tidy dataset from the Human Activity Recognition Using Smartphones Dataset.The dataset is available at [UCI_HAR_Dataset](https://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
+The purpose of this Course Project is to create a tidy dataset from the Human Activity Recognition Using Smartphones Dataset.The raw data is available at [UCI_HAR_Dataset](https://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
 ###### From the UCI-HAR folder, read the 'X_test.txt' and 'X_train.txt' files. 
 ```
 setwd("~/R/Coursera/Getting and Cleaning Data/Course Project")
@@ -62,9 +62,10 @@ View(activity_data)
 The variable names were added in Step 2. I cleaned up the names by replacing the - with _.
 ```
 names(activity_data) <- gsub("-", "_", names(activity_data))
+names(activity_data) <- gsub("[()]", "", names(activity_data))
 ```
 ######STEP5 From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
-This step requires the SubjectIDs for each observation. I import the subjectIDs of the 'test' and 'train' datasets.Then appended the values of subjectIDs for the train data to subjectIDs for the test data. This gives a vector of values with the subjectID for every observation in the dataset. Then merge the subjectID vector with the 'activity_data.' Used the 'aggregate' function to group the dataset by subject ID and activity, and took the mean for each variable for each group.Since the 'aggregate' function converts the 'activity' variable to a factor, I replace the factor codes with activity labels for the final tidy dataset.
+This step requires the SubjectIDs for each observation. I import the subjectIDs of the 'test' and 'train' datasets.Then appended the values of subjectIDs for the train data to subjectIDs for the test data. This gives a vector of values with the subjectID for every observation in the dataset. Then merge the subjectID vector with the 'activity_data.' Used the 'aggregate' function to group the dataset by subject ID and activity, and took the mean for each variable for each group.Since the 'aggregate' function converts the 'activity' variable to a factor, I replace the factor codes with activity labels for the final tidy dataset.I also replace the variable names in the new dataset. 
 ```
 fpath_subjectID_test <- file.path(td, fname$Name[16])
 subjectID_test <- read.table(fpath_subjectID_test)
@@ -81,6 +82,10 @@ x$Group.2 <- gsub(3, "WALKING_DOWNSTAIRS", x$Group.2)
 x$Group.2 <- gsub(4, "SITTING", x$Group.2)
 x$Group.2 <- gsub(5, "STANDING", x$Group.2)
 x$Group.2 <- gsub(6, "LAYING",x$Group.2)
+names(x) <- gsub("mean", "groupMean", names(x))
+names(x) <- gsub("std", "groupStd", names(x))
+names(x)[names(x)=="Group.1"] <- "subjectID"
+names(x)[names(x)=="Group.2"] <- "activity"
 View(x)
 ```
 
